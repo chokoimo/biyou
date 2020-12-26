@@ -1,9 +1,8 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title', 'お客様一覧')
 @section('content')
     <h1>お客様一覧</h1>
-    <a href="{{ url('/calendar') }}">カレンダーに戻る</a>
-    <!-- 休日入力フォーム -->
+    <a href="{{ url('/customer/create') }}">お客新規</a>
     
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -18,6 +17,7 @@
     <thead>
     <tr>
     <th scope="col">名前</th>
+    <th scope="col">年齢</th>
     <th scope="col">住所</th>
     <th scope="col">電話</th>
     <th scope="col">備考</th>
@@ -28,6 +28,7 @@
     @foreach($list as $val)
     <tr>
         <th scope="row"><a href="{{ url('/customer/index/'.$val->id) }}">{{$val->name}}</a></th>
+        <td>{{$val->age}}</td>
         <td>{{$val->address}}</td>
         <td>{{$val->tel}}</td>
         <td>{{$val->memo}}</td>
@@ -42,5 +43,5 @@
     @endforeach
     </tbody>
     </table>
-    <a href="{{ url('/customer/create') }}">お客新規</a>
+    
 @endsection

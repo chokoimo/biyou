@@ -52,10 +52,6 @@ class Calendar extends Model
 
 
 EOS;
-        
-        
-        
-        
         // カレンダーの日付部分を生成する
         while ($day <= $lastDay) {
             $this->html .= "<tr>";

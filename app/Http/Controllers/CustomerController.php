@@ -33,6 +33,8 @@ class CustomerController extends Controller
         if (isset($request->id)) {
             $customer = Customer::where('id', '=', $request->id)->first();
             $customer->name = $request->name;
+            $customer->age = $request->age;
+            $customer->birth = $request->birth;
             $customer->address = $request->address;
             $customer->tel = $request->tel;
             $customer->memo = $request->memo;
@@ -42,6 +44,8 @@ class CustomerController extends Controller
         } else {
             $customer = new Customer(); 
             $customer->name = $request->name;
+            $customer->age = $request->age;
+            $customer->birth = $request->birth;
             $customer->address = $request->address;
             $customer->tel = $request->tel;
             $customer->memo = $request->memo;
